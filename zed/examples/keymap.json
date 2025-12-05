@@ -1,0 +1,47 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+    {
+        "context": "GitPanel",
+        "bindings": {
+            "cmd-enter": "git::Commit",
+            "cmd-k": "git_panel::ToggleFocus"
+        }
+    },
+    {
+        "bindings": {
+            "cmd-g cmd-l": "git::Pull",
+            "cmd-g cmd-a": "git::StageAll",
+            "cmd-g cmd-p": "git::Push",
+            "cmd-g cmd-d": "git::Diff"
+        }
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            // "shift shift": "file_finder::Toggle"
+            "cmd-left": "project_panel::CollapseAllEntries"
+        }
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            // "j k": ["workspace::SendKeystrokes", "escape"]
+            "cmd-i": "editor::GoToDefinition",
+            "cmd-u": "editor::FindAllReferences",
+            "cmd-k": "git_panel::ToggleFocus"
+        }
+    },
+    {
+        "context": "ProjectPanel",
+        "bindings": {
+            // "j k": ["workspace::SendKeystrokes", "escape"]
+            "cmd-k": "git_panel::ToggleFocus"
+        }
+    }
+]
