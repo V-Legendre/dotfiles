@@ -30,7 +30,7 @@ inner.horizontal = 10
 inner.vertical = 10
 outer.left = 8
 outer.bottom = 8
-outer.top = 30
+outer.top = [{ monitor.'built-in' = 8 }, 30]  # 0 on built-in display, 30 on external monitors
 outer.right = 8
 
 # Mode settings
