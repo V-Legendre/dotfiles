@@ -30,7 +30,7 @@ inner.horizontal = 10
 inner.vertical = 10
 outer.left = 8
 outer.bottom = 8
-outer.top = [{ monitor.'built-in' = 8 }, 30]  # 0 on built-in display, 30 on external monitors
+outer.top = [{ monitor.'built-in' = 8 }, 40]  # 0 on built-in display, 30 on external monitors
 outer.right = 8
 
 # Mode settings
@@ -177,6 +177,14 @@ run = 'move-node-to-workspace 2'
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Notes'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace 5'
 
 # Default layout is tiling (equivalent to yabai's BSP)
 # Aerospace uses 'tiles' layout by default which is similar to BSP
