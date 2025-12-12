@@ -1,0 +1,194 @@
+# Aerospace configuration
+# Migrated from yabai configuration
+
+# Start AeroSpace at login
+start-at-login = true
+
+# Sketchybar disabled in favor of simplebar
+# after-startup-command = ['exec-and-forget sketchybar']
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+on-focus-changed = [
+  "exec-and-forget osascript -e 'tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\"'",
+]
+
+exec-on-workspace-change = [
+  '/bin/zsh',
+  '-c',
+  '/usr/bin/osascript -e "tell application id \"tracesOf.Uebersicht\" to refresh widget id \"simple-bar-index-jsx\""',
+]
+
+# Mouse settings (yabai: mouse_modifier = fn, mouse_action1 = move, mouse_action2 = resize)
+# Note: Aerospace doesn't have direct mouse control like yabai, but you can use macOS accessibility
+
+# Gaps (yabai: window_gap = 10, padding = 8)
+[gaps]
+inner.horizontal = 10
+inner.vertical = 10
+outer.left = 8
+outer.bottom = 8
+outer.top = 30
+outer.right = 8
+
+# Mode settings
+[mode.main.binding]
+
+# Workspace Navigation: alt - {1, 2, 3, 4}
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+ctrl-1 = 'workspace 5'
+ctrl-2 = 'workspace 6'
+ctrl-3 = 'workspace 7'
+ctrl-4 = 'workspace 8'
+
+# Window Focus: alt - {j, k, l, ö}
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'  # ö key position on US keyboard
+
+# Float / Unfloat window: alt - space
+alt-space = 'layout floating'
+
+# Fullscreen: shift + alt - f
+alt-shift-f = 'fullscreen'
+
+# Window Movement: shift + alt - {j, k, l, ö}
+alt-shift-x = 'move left'
+# alt-shift-k = 'move down'
+alt-shift-y = 'move up'
+# alt-shift-semicolon = 'move right'
+
+# Move window to workspace: shift + alt - {1, 2, 3, 4}
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+ctrl-shift-1 = 'move-node-to-workspace 5'
+ctrl-shift-2 = 'move-node-to-workspace 6'
+ctrl-shift-3 = 'move-node-to-workspace 7'
+ctrl-shift-4 = 'move-node-to-workspace 8'
+
+# Move to prev/next workspace: shift + alt - {p, n}
+alt-shift-p = ['move-node-to-workspace --wrap-around prev', 'workspace --wrap-around prev']
+alt-shift-n = ['move-node-to-workspace --wrap-around next', 'workspace --wrap-around next']
+
+# Balance window sizes: ctrl + alt - e
+alt-ctrl-e = 'balance-sizes'
+
+# Navigate workspaces: ctrl + alt - {p, n}
+alt-ctrl-p = 'workspace --wrap-around prev'
+alt-ctrl-n = 'workspace --wrap-around next'
+
+# Reload config: shift + alt - r
+alt-shift-r = 'reload-config'
+
+# Enter resize mode: alt - r
+alt-r = 'mode resize'
+
+# Resize mode - use hjkl to resize windows
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+esc = 'mode main'
+enter = 'mode main'
+
+# Window rules - exclude apps from tiling (from yabai rules)
+[[on-window-detected]]
+if.app-id = 'com.objective-see.lulu.app'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Dictionary'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'org.videolan.vlc'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.valvesoftware.steam'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.runningwithcrayons.Alfred'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.appstore'
+run = 'layout floating'
+
+# Finder preferences windows
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+if.window-title-regex-substring = '(Copy|Connect|Move|Info|Pref)'
+run = 'layout floating'
+
+# Safari preferences
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+if.window-title-regex-substring = '^(General|(Tab|Password|Website|Extension)s|AutoFill|Search|Security|Privacy|Advance)$'
+run = 'layout floating'
+
+# Application workspace assignments
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome.app.kjgfgldnnfoeklkmfkjfagphfepbbdan'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace 3'
+
+# Default layout is tiling (equivalent to yabai's BSP)
+# Aerospace uses 'tiles' layout by default which is similar to BSP
+
+# Workspaces - 8 total workspaces
+# Workspaces 1-4 on primary monitor, 5-8 on secondary monitor
+[workspace-to-monitor-force-assignment]
+1 = 'main'
+2 = 'main'
+3 = 'main'
+4 = 'main'
+5 = 'secondary'
+6 = 'secondary'
+7 = 'secondary'
+8 = 'secondary'
