@@ -30,7 +30,7 @@ inner.horizontal = 10
 inner.vertical = 10
 outer.left = 8
 outer.bottom = 8
-outer.top = [{ monitor.'built-in' = 8 }, 40]  # 0 on built-in display, 30 on external monitors
+outer.top = [{ monitor.'built-in' = 1 }, 33]  # 0 on built-in display, 35 on external monitors
 outer.right = 8
 
 # Mode settings
@@ -160,7 +160,7 @@ run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome.app.kjgfgldnnfoeklkmfkjfagphfepbbdan'
-run = 'move-node-to-workspace 8'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
@@ -184,7 +184,7 @@ run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
 if.app-id = 'notion.id'
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 4'
 
 # Default layout is tiling (equivalent to yabai's BSP)
 # Aerospace uses 'tiles' layout by default which is similar to BSP
