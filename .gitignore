@@ -1,0 +1,2 @@
+# Override global gitignore to track .zed project configs
+!.zed/

@@ -1,0 +1,17 @@
+[
+    {
+        "label": "Helm upgrade oh-api",
+        "command": "helm upgrade oh-api . --install --wait --namespace oh-api",
+        "cwd": "${ZED_WORKTREE_ROOT}/helm",
+    },
+    {
+        "label": "Download AWS config (dev)",
+        "command": "uv run scripts/utils/aws-config-download",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    },
+    {
+        "label": "k9s -n oh-api",
+        "command": "k9s -n oh-api",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    },
+]

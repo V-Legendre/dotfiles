@@ -1,0 +1,73 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+    "languages": {
+        "Python": {
+            "language_servers": ["pyright", "ruff"],
+            "format_on_save": "on",
+            "formatter": {
+                "language_server": {
+                    "name": "ruff",
+                },
+            },
+            "code_actions_on_format": {
+                "source.organizeImports.ruff": false,
+                "source.fixAll.ruff": true,
+            },
+        },
+        "Helm": {
+            "language_servers": ["helm-ls"],
+            "format_on_save": "off",
+            "tab_size": 2,
+        },
+        "YAML": {
+            "tab_size": 2,
+        },
+    },
+    "lsp": {
+        "pyright": {
+            "settings": {
+                "python.analysis": {
+                    "typeCheckingMode": "off",
+                },
+                "python": {
+                    "pythonPath": ".venv/bin/python",
+                },
+            },
+        },
+        "helm-ls": {
+            "initialization_options": {
+                "logLevel": "info",
+            },
+            "settings": {
+                "helm-ls": {
+                    "yamlls": {
+                        "enabled": true,
+                        "path": "yaml-language-server",
+                    },
+                },
+            },
+        },
+        "ruff": {
+            "initialization_options": {
+                "settings": {
+                    "configuration": "./pyproject.toml",
+                    "logLevel": "info",
+                },
+            },
+        },
+    },
+    "file_types": {
+        "Helm": [
+            "**/helm/templates/**/*.yaml",
+            "**/helm/templates/**/*.yml",
+            "**/helm/templates/**/*.tpl",
+            "helm/templates/**/*.yaml",
+            "helm/templates/**/*.yml",
+            "helm/templates/**/*.tpl",
+        ],
+    },
+    "tab_size": 4,
+}

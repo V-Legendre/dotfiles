@@ -1,0 +1,57 @@
+[profile Engineering_dev_n_staging_AdministratorAccess]
+sso_start_url = https://d-8067240129.awsapps.com/start
+sso_region = eu-west-3
+sso_account_id = 351385575148
+sso_role_name = PowerUserAccess
+region = eu-west-3
+output = json
+
+[profile ProdAdministratorAccess]
+sso_start_url = https://d-8067240129.awsapps.com/start
+sso_region = eu-west-3
+sso_account_id = 202878675042
+sso_role_name = AdministratorAccess
+region = eu-west-3
+output = json
+
+[profile ProdViewOnlyAccess]
+sso_start_url = https://d-8067240129.awsapps.com/start
+sso_region = eu-west-3
+sso_account_id = 202878675042
+sso_role_name = ViewOnlyAccess
+region = eu-west-3
+output = json
+
+[profile DataAdministratorAccess]
+sso_start_url = https://d-8067240129.awsapps.com/start
+sso_region = eu-west-3
+sso_account_id = 717279720283
+sso_role_name = AdministratorAccess
+region = eu-west-3
+output = json
+
+[profile SecureAdministratorAccess]
+sso_start_url = https://d-8067240129.awsapps.com/start
+sso_region = eu-west-3
+sso_account_id = 149536453601
+sso_role_name = AdministratorAccess
+region = eu-west-3
+output = json
+
+[default]
+region = eu-west-1
+output = json
+
+[RnDAdministratorAccess]
+region = eu-west-3
+sso_start_url = https://d-8067240129.awsapps.com/start
+sso_region = eu-west-3
+sso_account_id = 715988338250
+sso_role_name = AdministratorAccess
+
+[profile DSIAdministratorAccess]
+region = eu-west-3
+sso_start_url = https://d-8067240129.awsapps.com/start
+sso_region = eu-west-3
+sso_account_id = 228886224387
+sso_role_name = AdministratorAccess
