@@ -1,0 +1,43 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+    "autosave": "on_focus_change",
+    "languages": {
+        "Python": {
+            "language_servers": ["pyright", "ruff"],
+            "format_on_save": "on",
+            "formatter": [
+                {
+                    "language_server": {
+                        "name": "ruff",
+                    },
+                },
+            ],
+            "code_actions_on_format": {
+                "source.organizeImports.ruff": true,
+                "source.fixAll.ruff": true,
+            },
+        },
+        "Helm": {
+            "language_servers": ["helm-ls"],
+            "format_on_save": "off",
+        },
+        "YAML": {
+            "tab_size": 2,
+        },
+    },
+    "lsp": {
+        "pyright": {
+            "settings": {
+                "python.analysis": {
+                    "typeCheckingMode": "off",
+                },
+                "python": {
+                    "pythonPath": "pulumi/.venv/bin/python",
+                },
+            },
+        },
+    },
+}
