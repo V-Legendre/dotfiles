@@ -1,0 +1,53 @@
+[general]
+import = ["~/.config/alacritty/catppuccin-frappe.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[window]
+decorations = "Buttonless"
+opacity = 0.96
+blur = false
+padding = { x = 2, y = 2 }
+dynamic_padding = true
+dimensions = { columns = 0, lines = 0 }
+option_as_alt = "Both"
+
+[font]
+size = 13.0
+normal = { family = "JetBrains Mono", style = "Regular" }
+bold = { family = "JetBrains Mono", style = "Bold" }
+italic = { family = "JetBrains Mono", style = "Italic" }
+bold_italic = { family = "JetBrains Mono", style = "Bold Italic" }
+
+[cursor]
+style = { shape = "Block", blinking = "Off" }
+unfocused_hollow = true
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Alt"
+chars = "~"
+
+[[keyboard.bindings]]
+key = "("
+mods = "Alt"
+chars = "{"
+
+[[keyboard.bindings]]
+key = "("
+mods = "Alt|Shift"
+chars = "["
+
+[[keyboard.bindings]]
+key = ")"
+mods = "Alt"
+chars = "}"
+
+[[keyboard.bindings]]
+key = ")"
+mods = "Alt|Shift"
+chars = "]"
+
+[colors]
+draw_bold_text_with_bright_colors = false

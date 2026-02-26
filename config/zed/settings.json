@@ -36,9 +36,10 @@
     "agent": {
         "use_modifier_to_send": true,
         "default_model": {
-            "provider": "copilot_chat",
-            "model": "gpt-4.1"
-        }
+            "provider": "anthropic",
+            "model": "claude-sonnet-4-6-latest"
+        },
+        "default_external_agent": "claude_code"
     },
     "telemetry": {
         "diagnostics": false,
@@ -49,7 +50,7 @@
     "theme": {
         "mode": "system",
         "light": "One Light",
-        "dark": "Catppuccin Macchiato"
+        "dark": "Catppuccin Frappé"
     },
     "base_keymap": "VSCode",
     "autosave": "on_focus_change",
@@ -76,5 +77,14 @@
             "tab_size": 2
         }
     },
-    "show_edit_predictions": false
+    "show_edit_predictions": false,
+    "terminal": {
+        "font_family": "JetBrains Mono",
+        "font_size": 13,
+        "line_height": "standard",
+        "cursor_shape": "block",
+        "blinking": "off",
+        "option_as_meta": true,
+        "minimum_contrast": 0
+    }
 }
