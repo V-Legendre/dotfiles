@@ -7,75 +7,48 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-    "ssh_connections": [
-        {
-            "host": "oh-api-worker",
-            "projects": [
-                {
-                    "paths": ["/home/ouihelp"]
-                },
-                {
-                    "paths": ["/home/ubuntu"]
-                }
-            ]
-        },
-        {
-            "host": "carcans3.hourtin.ouihelp.fr",
-            "username": "ubuntu",
-            "projects": [
-                {
-                    "paths": ["/etc"]
-                }
-            ]
-        },
-        {
-            "host": "oh-dwh",
-            "projects": []
-        }
-    ],
     "agent": {
         "use_modifier_to_send": true,
         "default_model": {
             "provider": "anthropic",
-            "model": "claude-sonnet-4-6-latest"
+            "model": "claude-sonnet-4-6-latest",
         },
-        "default_external_agent": "claude_code"
     },
     "telemetry": {
         "diagnostics": false,
-        "metrics": false
+        "metrics": false,
     },
     "ui_font_size": 16,
     "buffer_font_size": 14,
     "theme": {
         "mode": "system",
         "light": "One Light",
-        "dark": "Catppuccin Frappé"
+        "dark": "Catppuccin Macchiato",
     },
     "base_keymap": "VSCode",
     "autosave": "on_focus_change",
     "gutter": {
-        "line_numbers": true
+        "line_numbers": true,
     },
     "tab_size": 4,
     "languages": {
         "YAML": {
             "tab_size": 2,
-            "format_on_save": "off"
+            "format_on_save": "off",
         },
         "TOML": {
             "tab_size": 2,
-            "format_on_save": "off"
+            "format_on_save": "off",
         },
         "Jinja2": {
-            "tab_size": 2
+            "tab_size": 2,
         },
         "Helm": {
-            "tab_size": 2
+            "tab_size": 2,
         },
         "Shell Script": {
-            "tab_size": 2
-        }
+            "tab_size": 2,
+        },
     },
     "show_edit_predictions": false,
     "terminal": {
@@ -85,6 +58,6 @@
         "cursor_shape": "block",
         "blinking": "off",
         "option_as_meta": true,
-        "minimum_contrast": 0
-    }
+        "minimum_contrast": 0,
+    },
 }
