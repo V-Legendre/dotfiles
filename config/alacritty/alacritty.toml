@@ -54,5 +54,15 @@ key = "L"
 mods = "Alt|Shift"
 chars = "|"
 
+[[keyboard.bindings]]
+key = ":"
+mods = "Alt|Shift"
+chars = "\\"
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001b[13;2u"
+
 [colors]
 draw_bold_text_with_bright_colors = false
