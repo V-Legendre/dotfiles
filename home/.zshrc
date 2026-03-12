@@ -124,6 +124,9 @@ compdef k=kubectl
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(~/.local/bin/mise activate zsh)"
 
+# Krew (kubectl plugin manager)
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
 fpath=(/Users/vlegendre/.docker/completions $fpath)
 autoload -Uz compinit

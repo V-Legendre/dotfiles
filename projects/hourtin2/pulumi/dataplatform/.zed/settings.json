@@ -1,0 +1,31 @@
+{
+    "languages": {
+        "Python": {
+            "language_servers": ["pyright", "ruff"],
+            "format_on_save": "on",
+            "formatter": [
+                {
+                    "language_server": {
+                        "name": "ruff"
+                    }
+                }
+            ],
+            "code_actions_on_format": {
+                "source.organizeImports.ruff": true,
+                "source.fixAll.ruff": true
+            }
+        }
+    },
+    "lsp": {
+        "pyright": {
+            "settings": {
+                "python.analysis": {
+                    "typeCheckingMode": "off"
+                },
+                "python": {
+                    "pythonPath": ".venv/bin/python"
+                }
+            }
+        }
+    }
+}
