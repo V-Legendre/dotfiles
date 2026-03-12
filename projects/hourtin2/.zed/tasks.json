@@ -1,0 +1,17 @@
+[
+    {
+        "label": "k9s -n airbyte",
+        "command": "k9s -n airbyte",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    },
+    {
+        "label": "k9s - cnpg",
+        "command": "k9s -n cloud-native-pg",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    },
+    {
+        "label": "k9s -n prefect-oss",
+        "command": "k9s -n prefect-oss",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    },
+]
