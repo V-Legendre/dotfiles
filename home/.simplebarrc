@@ -93,7 +93,7 @@
     "zoomWidget": false,
     "soundWidget": false,
     "micWidget": false,
-    "dateWidget": true,
+    "dateWidget": false,
     "timeWidget": true,
     "keyboardWidget": false,
     "spotifyWidget": false,
