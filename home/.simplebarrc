@@ -266,9 +266,24 @@
     "showSpecter": true
   },
   "userWidgets": {
-    "userWidgetsList": {}
+    "userWidgetsList": {
+      "1": {
+        "title": "Slack",
+        "icon": "Slack",
+        "backgroundColor": "--minor",
+        "output": "$HOME/.local/bin/slack-notifs.sh",
+        "onClickAction": "open -a Slack",
+        "onRightClickAction": "",
+        "onMiddleClickAction": "",
+        "refreshFrequency": 30000,
+        "showOnDisplay": "",
+        "active": true,
+        "noIcon": false,
+        "hideWhenNoOutput": false
+      }
+    }
   },
   "customStyles": {
-    "styles": "/* your custom css styles here */"
+    "styles": ".data-widget.user-widget--1 { color: var(--foreground) !important; }"
   }
 }

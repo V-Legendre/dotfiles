@@ -38,6 +38,12 @@ for f in "$DOTFILES_DIR"/home/.*; do
   link_file "$f" "$HOME/$(basename "$f")"
 done
 
+echo "==> ~/.local/bin scripts"
+for f in "$DOTFILES_DIR"/home/.local/bin/*; do
+  [ -f "$f" ] || continue
+  link_file "$f" "$HOME/.local/bin/$(basename "$f")"
+done
+
 echo "==> ~/.config"
 find "$DOTFILES_DIR/config" -type f | while read -r f; do
   rel="${f#"$DOTFILES_DIR"/config/}"
