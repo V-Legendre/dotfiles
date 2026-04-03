@@ -1,0 +1,44 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+    "languages": {
+        "Python": {
+            "language_servers": ["pyright", "ruff"],
+            "format_on_save": "on",
+            "formatter": {
+                "language_server": {
+                    "name": "ruff",
+                },
+            },
+            "code_actions_on_format": {
+                "source.organizeImports.ruff": true,
+                "source.fixAll.ruff": true,
+            },
+        },
+        "YAML": {
+            "tab_size": 2,
+        },
+    },
+    "lsp": {
+        "pyright": {
+            "settings": {
+                "python.analysis": {
+                    "typeCheckingMode": "off",
+                },
+                "python": {
+                    "pythonPath": ".venv/bin/python",
+                },
+            },
+        },
+        "ruff": {
+            "initialization_options": {
+                "settings": {
+                    "configuration": "./pyproject.toml",
+                },
+            },
+        },
+    },
+    "tab_size": 4,
+}

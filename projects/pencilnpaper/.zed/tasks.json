@@ -1,0 +1,40 @@
+[
+    {
+        "label": "Tauri Dev",
+        "command": "pnpm dev",
+        "use_new_terminal": true,
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+        "reveal_target": "dock",
+        "hide": "never",
+        "shell": "system"
+    },
+    {
+        "label": "Tauri Build",
+        "command": "pnpm build",
+        "use_new_terminal": true,
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+        "reveal_target": "dock",
+        "hide": "never",
+        "shell": "system"
+    },
+    {
+        "label": "Cargo Check (workspace)",
+        "command": "cargo check --workspace",
+        "use_new_terminal": false,
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+        "reveal_target": "dock",
+        "shell": "system"
+    },
+    {
+        "label": "Cargo Test (workspace)",
+        "command": "cargo test --workspace",
+        "use_new_terminal": false,
+        "allow_concurrent_runs": false,
+        "reveal": "always",
+        "reveal_target": "dock",
+        "shell": "system"
+    }
+]

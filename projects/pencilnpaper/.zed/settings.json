@@ -1,0 +1,16 @@
+{
+    "show_edit_predictions": false,
+    "format_on_save": "on",
+    "languages": {
+        "Rust": {
+            "format_on_save": "on",
+            "code_actions_on_format": { "source.organizeImports": true }
+        },
+        "TypeScript": {
+            "format_on_save": "on"
+        },
+        "TSX": {
+            "format_on_save": "on"
+        }
+    }
+}

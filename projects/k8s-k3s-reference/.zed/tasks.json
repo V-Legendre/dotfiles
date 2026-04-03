@@ -1,0 +1,12 @@
+[
+    {
+        "label": "Pulumi up",
+        "command": "pulumi up",
+        "cwd": "${ZED_WORKTREE_ROOT}/demo-cluster",
+    },
+    {
+        "label": "Pulumi down",
+        "command": "pulumi down",
+        "cwd": "${ZED_WORKTREE_ROOT}/demo-cluster",
+    },
+]
