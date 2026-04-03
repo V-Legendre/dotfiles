@@ -42,7 +42,7 @@ output = json
 region = eu-west-1
 output = json
 
-[RnDAdministratorAccess]
+[profile RnDAdministratorAccess]
 region = eu-west-3
 sso_start_url = https://d-8067240129.awsapps.com/start
 sso_region = eu-west-3

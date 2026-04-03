@@ -52,7 +52,8 @@
             "alt-shift-9": ["terminal::SendText", "["],
             "alt-0": ["terminal::SendText", "}"],
             "alt-shift-0": ["terminal::SendText", "]"],
-            "alt-shift-l": ["terminal::SendText", "|"]
+            "alt-shift-l": ["terminal::SendText", "|"],
+            "alt-/": ["terminal::SendText", "\\"]
         }
     }
 ]
