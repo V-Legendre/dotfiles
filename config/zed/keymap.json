@@ -47,6 +47,7 @@
     {
         "context": "Terminal",
         "bindings": {
+            "cmd-shift-z": "workspace::ToggleZoom",
             "alt-n": ["terminal::SendText", "~"],
             "alt-9": ["terminal::SendText", "{"],
             "alt-shift-9": ["terminal::SendText", "["],
