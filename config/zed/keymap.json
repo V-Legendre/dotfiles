@@ -25,7 +25,12 @@
         "context": "Workspace",
         "bindings": {
             // "shift shift": "file_finder::Toggle"
-            "cmd-left": "project_panel::CollapseAllEntries"
+            "cmd-left": "project_panel::CollapseAllEntries",
+            // Cycle through tabs without going through the tab_switcher,
+            // which leaves focus stuck in the switcher when landing on a
+            // terminal tab (requiring a click to focus the terminal).
+            "ctrl-tab": "pane::ActivateNextItem",
+            "ctrl-shift-tab": "pane::ActivatePrevItem"
         }
     },
     {

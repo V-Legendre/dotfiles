@@ -11,4 +11,10 @@
         "env": { "PULUMI_STACK": "vincent" },
         "cwd": "${ZED_WORKTREE_ROOT}/demo-cluster",
     },
+    {
+        "label": "Setup kubeconfig",
+        "command": "pulumi stack output kubeconfig --show-secrets > ../kubeconfig.yaml",
+        "env": { "PULUMI_STACK": "vincent" },
+        "cwd": "${ZED_WORKTREE_ROOT}/demo-cluster",
+    },
 ]
