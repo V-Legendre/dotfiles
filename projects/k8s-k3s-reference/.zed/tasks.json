@@ -2,11 +2,13 @@
     {
         "label": "Pulumi up",
         "command": "pulumi up",
+        "env": { "PULUMI_STACK": "vincent" },
         "cwd": "${ZED_WORKTREE_ROOT}/demo-cluster",
     },
     {
         "label": "Pulumi down",
         "command": "pulumi down",
+        "env": { "PULUMI_STACK": "vincent" },
         "cwd": "${ZED_WORKTREE_ROOT}/demo-cluster",
     },
 ]
