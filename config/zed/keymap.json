@@ -10,16 +10,16 @@
         "context": "GitPanel",
         "bindings": {
             "cmd-enter": "git::Commit",
-            "cmd-k": "git_panel::ToggleFocus"
-        }
+            "cmd-k": "git_panel::ToggleFocus",
+        },
     },
     {
         "bindings": {
             "cmd-g cmd-l": "git::Pull",
             "cmd-g cmd-a": "git::StageAll",
             "cmd-g cmd-p": "git::Push",
-            "cmd-g cmd-d": "git::Diff"
-        }
+            "cmd-g cmd-d": "git::Diff",
+        },
     },
     {
         "context": "Workspace",
@@ -30,8 +30,8 @@
             // which leaves focus stuck in the switcher when landing on a
             // terminal tab (requiring a click to focus the terminal).
             "ctrl-tab": "pane::ActivateNextItem",
-            "ctrl-shift-tab": "pane::ActivatePrevItem"
-        }
+            "ctrl-shift-tab": "pane::ActivateLastItem",
+        },
     },
     {
         "context": "Editor",
@@ -39,15 +39,15 @@
             // "j k": ["workspace::SendKeystrokes", "escape"]
             "cmd-i": "editor::GoToDefinition",
             "cmd-u": "editor::FindAllReferences",
-            "cmd-k": "git_panel::ToggleFocus"
-        }
+            "cmd-k": "git_panel::ToggleFocus",
+        },
     },
     {
         "context": "ProjectPanel",
         "bindings": {
             // "j k": ["workspace::SendKeystrokes", "escape"]
-            "cmd-k": "git_panel::ToggleFocus"
-        }
+            "cmd-k": "git_panel::ToggleFocus",
+        },
     },
     {
         "context": "Terminal",
@@ -59,7 +59,7 @@
             "alt-0": ["terminal::SendText", "}"],
             "alt-shift-0": ["terminal::SendText", "]"],
             "alt-shift-l": ["terminal::SendText", "|"],
-            "alt-/": ["terminal::SendText", "\\"]
-        }
-    }
+            "alt-/": ["terminal::SendText", "\\"],
+        },
+    },
 ]

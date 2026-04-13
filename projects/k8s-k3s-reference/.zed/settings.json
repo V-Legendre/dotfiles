@@ -5,33 +5,31 @@
 {
     "languages": {
         "Python": {
-            "language_servers": ["pyright", "ruff"],
+            "language_servers": ["ty", "ruff"],
             "format_on_save": "on",
+            "code_actions_on_format": {
+                "source.organizeImports.ruff": true,
+                "source.fixAll.ruff": true,
+            },
             "formatter": [
                 {
-                    "code_actions": {
-                        "source.organizeImports.ruff": true,
-                        "source.fixAll.ruff": true
-                    }
-                },
-                {
                     "language_server": {
-                        "name": "ruff"
-                    }
-                }
-            ]
-        }
+                        "name": "ruff",
+                    },
+                },
+            ],
+        },
     },
     "lsp": {
         "pyright": {
             "settings": {
                 "python.analysis": {
-                    "typeCheckingMode": "off"
+                    "typeCheckingMode": "off",
                 },
                 "python": {
-                    "pythonPath": ".venv/bin/python"
-                }
-            }
-        }
-    }
+                    "pythonPath": ".venv/bin/python",
+                },
+            },
+        },
+    },
 }

@@ -40,9 +40,6 @@
             "tab_size": 2,
             "format_on_save": "off",
         },
-        "Jinja2": {
-            "tab_size": 2,
-        },
         "Helm": {
             "tab_size": 2,
         },
