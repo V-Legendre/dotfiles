@@ -2,10 +2,16 @@
   {
     "label": "Helm upgrade oh-api",
     "command": "helm upgrade oh-api . --install --wait --namespace oh-api",
-    "cwd": "${ZED_WORKTREE_ROOT}/helm_oh_api"
+    "cwd": "${ZED_WORKTREE_ROOT}/helm_oh_api",
   },
   {
     "label": "Port forward API",
-    "command": "kubectl port-forward -n oh-api svc/traefik 443:443 --address=0.0.0.0"
-  }
+    "command": "kubectl port-forward -n oh-api svc/traefik 443:443 --address=0.0.0.0",
+  },
+  {
+    "label": "Pulumi up",
+    "command": "pulumi up",
+    "env": { "PULUMI_STACK": "main" },
+    "cwd": "${ZED_WORKTREE_ROOT}/pulumi",
+  },
 ]
