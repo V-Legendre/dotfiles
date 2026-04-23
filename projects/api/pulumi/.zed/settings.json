@@ -28,16 +28,4 @@
             "tab_size": 2,
         },
     },
-    "lsp": {
-        "pyright": {
-            "settings": {
-                "python.analysis": {
-                    "typeCheckingMode": "off",
-                },
-                "python": {
-                    "pythonPath": "pulumi/.venv/bin/python",
-                },
-            },
-        },
-    },
 }

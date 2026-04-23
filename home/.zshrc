@@ -110,6 +110,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias k="kubectl"
+alias raude="rtk claude"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -145,4 +146,3 @@ export NVM_DIR="$HOME/.nvm"
 
 # source ~/.config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 
-eval "$(starship init zsh)"

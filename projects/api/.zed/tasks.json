@@ -14,4 +14,24 @@
         "command": "k9s -n oh-api",
         "cwd": "${ZED_WORKTREE_ROOT}",
     },
+    {
+        "label": "Pulumi up (app)",
+        "command": "pulumi up",
+        "cwd": "${ZED_WORKTREE_ROOT}/pulumi/app",
+    },
+    {
+        "label": "Pulumi preview (app)",
+        "command": "pulumi preview --diff",
+        "cwd": "${ZED_WORKTREE_ROOT}/pulumi/app",
+    },
+    {
+        "label": "Pulumi up (dynamic_envs)",
+        "command": "pulumi up",
+        "cwd": "${ZED_WORKTREE_ROOT}/pulumi/dynamic_envs",
+    },
+    {
+        "label": "Pulumi preview (dynamic_envs)",
+        "command": "pulumi preview --diff",
+        "cwd": "${ZED_WORKTREE_ROOT}/pulumi/dynamic_envs",
+    },
 ]
