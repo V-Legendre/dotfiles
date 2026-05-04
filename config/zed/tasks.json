@@ -3,4 +3,8 @@
         "label": "aws sso login",
         "command": "aws sso login",
     },
+    {
+        "label": "Netshoot",
+        "command": "printf \"Namespace: \"; read namespace; kubectl run netshoot-tmp --rm -i --tty --image nicolaka/netshoot --namespace $namespace",
+    },
 ]

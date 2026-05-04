@@ -34,4 +34,9 @@
         "command": "pulumi preview --diff",
         "cwd": "${ZED_WORKTREE_ROOT}/pulumi/dynamic_envs",
     },
+    {
+        "label": "mise db-revision",
+        "command": "Mise db-revision",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    },
 ]
