@@ -9,6 +9,9 @@
 {
     "cli_default_open_behavior": "new_window",
     "agent_servers": {
+        "mistral-vibe": {
+            "type": "registry"
+        },
         "claude-acp": {
             "type": "registry"
         }

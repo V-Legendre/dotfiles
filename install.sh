@@ -50,6 +50,12 @@ find "$DOTFILES_DIR/config" -type f | while read -r f; do
   link_file "$f" "$HOME/.config/$rel"
 done
 
+echo "==> Mistral Vibe config"
+if [ -f "$DOTFILES_DIR/config/vibe/config.toml" ]; then
+  mkdir -p "$HOME/.vibe"
+  link_file "$DOTFILES_DIR/config/vibe/config.toml" "$HOME/.vibe/config.toml"
+fi
+
 echo "==> AWS config"
 if [ -f "$DOTFILES_DIR/aws/config" ]; then
   link_file "$DOTFILES_DIR/aws/config" "$HOME/.aws/config"
