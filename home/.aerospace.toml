@@ -180,7 +180,7 @@ run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Notes'
-run = 'move-node-to-workspace 4'
+run = ['move-node-to-workspace 4', 'fullscreen off']
 
 [[on-window-detected]]
 if.app-id = 'notion.id'
