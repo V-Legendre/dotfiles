@@ -190,6 +190,10 @@ run = 'move-node-to-workspace 4'
 if.app-id = 'com.linear'
 run = 'move-node-to-workspace 4'
 
+[[on-window-detected]]
+if.app-id = 'com.pencilnpaper.app'
+run = 'move-node-to-workspace 5'
+
 # Default layout is tiling (equivalent to yabai's BSP)
 # Aerospace uses 'tiles' layout by default which is similar to BSP
 

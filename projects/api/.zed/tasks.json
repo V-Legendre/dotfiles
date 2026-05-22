@@ -35,8 +35,13 @@
         "cwd": "${ZED_WORKTREE_ROOT}/pulumi/dynamic_envs",
     },
     {
-        "label": "mise db-revision",
-        "command": "Mise db-revision",
+        "label": "db-revision",
+        "command": "mise db-revision",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    },
+    {
+        "label": "db-upgrade",
+        "command": "mise db-upgrade",
         "cwd": "${ZED_WORKTREE_ROOT}",
     },
 ]
