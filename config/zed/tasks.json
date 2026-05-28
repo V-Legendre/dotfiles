@@ -4,6 +4,10 @@
         "command": "aws sso login",
     },
     {
+        "label": "Helm login",
+        "command": "aws ecr get-login-password --region eu-west-3 | helm registry login --username AWS --password-stdin 202878675042.dkr.ecr.eu-west-3.amazonaws.com",
+    },
+    {
         "label": "Netshoot",
         "command": "printf \"Namespace: \"; read namespace; kubectl run netshoot-tmp --rm -i --tty --image nicolaka/netshoot --namespace $namespace",
     },

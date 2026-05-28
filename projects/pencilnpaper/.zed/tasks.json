@@ -2,12 +2,12 @@
     {
         "label": "Tauri Dev",
         "command": "pnpm dev",
-        "use_new_terminal": true,
+        "use_new_terminal": false,
         "allow_concurrent_runs": false,
         "reveal": "always",
         "reveal_target": "dock",
         "hide": "never",
-        "shell": "system"
+        "shell": "system",
     },
     {
         "label": "Tauri Build",
@@ -17,7 +17,7 @@
         "reveal": "always",
         "reveal_target": "dock",
         "hide": "never",
-        "shell": "system"
+        "shell": "system",
     },
     {
         "label": "Cargo Check (workspace)",
@@ -26,7 +26,7 @@
         "allow_concurrent_runs": false,
         "reveal": "always",
         "reveal_target": "dock",
-        "shell": "system"
+        "shell": "system",
     },
     {
         "label": "Cargo Test (workspace)",
@@ -35,6 +35,6 @@
         "allow_concurrent_runs": false,
         "reveal": "always",
         "reveal_target": "dock",
-        "shell": "system"
-    }
+        "shell": "system",
+    },
 ]

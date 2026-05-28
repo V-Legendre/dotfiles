@@ -190,8 +190,14 @@ run = 'move-node-to-workspace 4'
 if.app-id = 'com.linear'
 run = 'move-node-to-workspace 4'
 
+# Matches both the bundled .app (com.pencilnpaper.app) and the
+# unbundled `tauri dev` binary, which has no bundle id (app name only).
 [[on-window-detected]]
 if.app-id = 'com.pencilnpaper.app'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'pencilnpaper'
 run = 'move-node-to-workspace 5'
 
 # Default layout is tiling (equivalent to yabai's BSP)
