@@ -1,0 +1,53 @@
+// Zed keymap — omarchy (Linux) overlay.
+//
+// Merged after shared/zed/keymap.base.json by install.sh.
+// Mirrors the macOS overlay with cmd- translated to ctrl-. The AZERTY
+// terminal bindings are omitted: AltGr already produces those symbols on Linux.
+// The `[` and `]` below must stay alone on their own lines (the merge is textual).
+[
+    {
+        "context": "GitPanel",
+        "bindings": {
+            "ctrl-enter": "git::Commit",
+            "ctrl-k": "git_panel::ToggleFocus",
+        },
+    },
+    {
+        "bindings": {
+            "ctrl-g ctrl-l": "git::Pull",
+            "ctrl-g ctrl-a": "git::StageAll",
+            "ctrl-g ctrl-p": "git::Push",
+            "ctrl-g ctrl-d": "git::Diff",
+            "ctrl-alt-c": [
+                "agent::NewExternalAgentThread",
+                { "agent": { "custom": { "name": "claude-acp" } } },
+            ],
+        },
+    },
+    {
+        "context": "Workspace",
+        "bindings": {
+            "ctrl-left": "project_panel::CollapseAllEntries",
+        },
+    },
+    {
+        "context": "Editor",
+        "bindings": {
+            "ctrl-i": "editor::GoToDefinition",
+            "ctrl-u": "editor::FindAllReferences",
+            "ctrl-k": "git_panel::ToggleFocus",
+        },
+    },
+    {
+        "context": "ProjectPanel",
+        "bindings": {
+            "ctrl-k": "git_panel::ToggleFocus",
+        },
+    },
+    {
+        "context": "Terminal",
+        "bindings": {
+            "ctrl-shift-z": "workspace::ToggleZoom",
+        },
+    },
+]

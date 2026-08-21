@@ -15,13 +15,23 @@
         "cwd": "${ZED_WORKTREE_ROOT}",
     },
     {
-        "label": "Terraform apply",
-        "command": "terraform apply -var-file config/prod.tfvars",
-        "cwd": "${ZED_WORKTREE_ROOT}/airbyte",
+        "label": "Pulumi up",
+        "command": "pulumi up",
+        "cwd": "${ZED_WORKTREE_ROOT}/pulumi/dataplatform",
     },
     {
-        "label": "Terraform plan",
-        "command": "terraform plan -var-file config/prod.tfvars",
-        "cwd": "${ZED_WORKTREE_ROOT}/airbyte",
+        "label": "Pulumi preview",
+        "command": "pulumi preview",
+        "cwd": "${ZED_WORKTREE_ROOT}/pulumi/dataplatform",
+    },
+    {
+        "label": "[DWH] ansible plan",
+        "command": "mise run dwh-ansible-plan",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    },
+    {
+        "label": "[DWH] ansible apply",
+        "command": "mise run dwh-ansible-apply",
+        "cwd": "${ZED_WORKTREE_ROOT}",
     },
 ]

@@ -13,6 +13,12 @@
             "type": "registry"
         },
         "claude-acp": {
+            "default_config_options": {
+                "fast": false,
+                "model": "default",
+                "mode": "auto",
+                "effort": "high"
+            },
             "type": "registry"
         }
     },

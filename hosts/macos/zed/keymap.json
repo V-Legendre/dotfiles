@@ -1,10 +1,7 @@
-// Zed keymap
+// Zed keymap — macOS overlay.
 //
-// For information on binding keys, see the Zed
-// documentation: https://zed.dev/docs/key-bindings
-//
-// To see the default key bindings run `zed: open default keymap`
-// from the command palette.
+// Merged after shared/zed/keymap.base.json by install.sh.
+// The `[` and `]` below must stay alone on their own lines (the merge is textual).
 [
     {
         "context": "GitPanel",
@@ -30,11 +27,6 @@
         "bindings": {
             // "shift shift": "file_finder::Toggle"
             "cmd-left": "project_panel::CollapseAllEntries",
-            // Cycle through tabs without going through the tab_switcher,
-            // which leaves focus stuck in the switcher when landing on a
-            // terminal tab (requiring a click to focus the terminal).
-            "ctrl-tab": "pane::ActivateNextItem",
-            "ctrl-shift-tab": "pane::ActivateLastItem",
         },
     },
     {
@@ -49,7 +41,6 @@
     {
         "context": "ProjectPanel",
         "bindings": {
-            // "j k": ["workspace::SendKeystrokes", "escape"]
             "cmd-k": "git_panel::ToggleFocus",
         },
     },
@@ -57,6 +48,8 @@
         "context": "Terminal",
         "bindings": {
             "cmd-shift-z": "workspace::ToggleZoom",
+            // macOS remaps option-<key>, so the AZERTY symbols have to be
+            // re-sent by hand. On Linux AltGr produces them natively.
             "alt-n": ["terminal::SendText", "~"],
             "alt-9": ["terminal::SendText", "{"],
             "alt-shift-9": ["terminal::SendText", "["],

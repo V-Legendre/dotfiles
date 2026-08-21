@@ -1,0 +1,20 @@
+// Zed keymap — bindings shared by every host.
+//
+// This file is NOT symlinked directly: install.sh concatenates it with
+// hosts/<host>/zed/keymap.json to produce ~/.config/zed/keymap.json.
+// Keep only OS-neutral bindings here; anything using cmd/ctrl/option as a
+// platform-specific modifier belongs in the host overlay.
+//
+// The `[` and `]` below must stay alone on their own lines (the merge is textual).
+[
+    {
+        "context": "Workspace",
+        "bindings": {
+            // Cycle through tabs without going through the tab_switcher,
+            // which leaves focus stuck in the switcher when landing on a
+            // terminal tab (requiring a click to focus the terminal).
+            "ctrl-tab": "pane::ActivateNextItem",
+            "ctrl-shift-tab": "pane::ActivateLastItem",
+        },
+    },
+]

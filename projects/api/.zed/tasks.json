@@ -44,4 +44,9 @@
         "command": "mise db-upgrade",
         "cwd": "${ZED_WORKTREE_ROOT}",
     },
+    {
+        "label": "Build RunsOn AMI",
+        "command": "mise build-runs-on-ami",
+        "cwd": "${ZED_WORKTREE_ROOT}",
+    }
 ]

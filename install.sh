@@ -2,77 +2,109 @@
 set -euo pipefail
 
 DOTFILES_DIR="$(cd "$(dirname "$0")" && pwd)"
-PROJECTS_DIR="$HOME/Documents/Projects"
+# shellcheck source=lib/common.sh
+source "$DOTFILES_DIR/lib/common.sh"
 
-if [ ! -d "$PROJECTS_DIR" ]; then
-  echo "Error: $PROJECTS_DIR does not exist. Aborting." >&2
-  exit 1
-fi
+usage() {
+  cat <<EOF
+Usage: ./install.sh [--host <name>] [--dry-run]
 
-link_file() {
-  local src="$1"
-  local dest="$2"
+  --host <name>   Force a host profile (a directory under hosts/).
+                  Defaults to \$DOTFILES_HOST, else auto-detected.
+  --dry-run       Print what would happen without touching the filesystem.
 
-  if [ -L "$dest" ]; then
-    local current_target
-    current_target="$(readlink "$dest")"
-    if [ "$current_target" = "$src" ]; then
-      echo "  ok: $dest"
-      return
-    fi
-    echo "  updating: $dest (was → $current_target)"
-    rm "$dest"
-  elif [ -e "$dest" ]; then
-    echo "  backing up: $dest → ${dest}.bak"
-    mv "$dest" "${dest}.bak"
-  fi
-
-  mkdir -p "$(dirname "$dest")"
-  ln -s "$src" "$dest"
-  echo "  linked: $dest → $src"
+Available hosts: $(ls "$DOTFILES_DIR/hosts" | tr '\n' ' ')
+EOF
 }
 
-echo "==> Home directory configs"
-for f in "$DOTFILES_DIR"/home/.*; do
-  [ -f "$f" ] || continue
-  link_file "$f" "$HOME/$(basename "$f")"
+HOST="${DOTFILES_HOST:-}"
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --host) HOST="${2:-}"; [ -n "$HOST" ] || die "--host needs a value"; shift 2 ;;
+    --host=*) HOST="${1#*=}"; shift ;;
+    --dry-run) DRY_RUN=1; shift ;;
+    -h|--help) usage; exit 0 ;;
+    *) usage >&2; die "unknown argument: $1" ;;
+  esac
 done
 
-echo "==> ~/.local/bin scripts"
-for f in "$DOTFILES_DIR"/home/.local/bin/*; do
-  [ -f "$f" ] || continue
-  link_file "$f" "$HOME/.local/bin/$(basename "$f")"
-done
+detect_host() {
+  case "$(uname -s)" in
+    Darwin) echo macos ;;
+    Linux)
+      if [ -d "$HOME/.local/share/omarchy" ] || [ -n "${OMARCHY_PATH:-}" ]; then
+        echo omarchy
+      else
+        echo ""
+      fi
+      ;;
+    *) echo "" ;;
+  esac
+}
 
-echo "==> ~/.config"
-find "$DOTFILES_DIR/config" -type f | while read -r f; do
-  rel="${f#"$DOTFILES_DIR"/config/}"
-  link_file "$f" "$HOME/.config/$rel"
-done
+[ -n "$HOST" ] || HOST="$(detect_host)"
+[ -n "$HOST" ] || die "could not detect host. Re-run with --host <$(ls "$DOTFILES_DIR/hosts" | paste -sd'|' -)>"
 
-echo "==> Mistral Vibe config"
-if [ -f "$DOTFILES_DIR/config/vibe/config.toml" ]; then
-  mkdir -p "$HOME/.vibe"
-  link_file "$DOTFILES_DIR/config/vibe/config.toml" "$HOME/.vibe/config.toml"
-fi
+HOST_DIR="$DOTFILES_DIR/hosts/$HOST"
+[ -d "$HOST_DIR" ] || die "unknown host '$HOST' (no hosts/$HOST directory)"
 
-echo "==> AWS config"
-if [ -f "$DOTFILES_DIR/aws/config" ]; then
-  link_file "$DOTFILES_DIR/aws/config" "$HOME/.aws/config"
-fi
+HOST_INSTALL_PROJECTS=0
+HOST_PROJECTS_DIR=""
+# shellcheck source=/dev/null
+source "$HOST_DIR/host.sh"
 
-echo "==> Per-project .zed configs"
-for project_dir in "$DOTFILES_DIR"/projects/*/; do
-  project="$(basename "$project_dir")"
-  target_base="$PROJECTS_DIR/$project"
-  if [ ! -d "$target_base" ]; then
-    echo "  skipping $project (project dir not found)"
-    continue
+echo "dotfiles: $DOTFILES_DIR"
+echo "host:     $HOST"
+[ "$DRY_RUN" = "1" ] && echo "mode:     dry-run (nothing will be written)"
+
+# --- shared layer ----------------------------------------------------------
+
+head_ "Home directory configs (shared)"
+link_tree "$DOTFILES_DIR/shared/home" "$HOME"
+
+head_ "~/.config (shared)"
+link_tree "$DOTFILES_DIR/shared/config" "$HOME/.config"
+
+head_ "Zsh drop-ins (~/.zshrc.d)"
+run mkdir -p "$HOME/.zshrc.d"
+link_tree "$DOTFILES_DIR/shared/zshrc.d" "$HOME/.zshrc.d"
+link_tree "$HOST_DIR/zshrc.d" "$HOME/.zshrc.d"
+prune_links "$HOME/.zshrc.d" "$DOTFILES_DIR"
+
+head_ "Zed keymap (shared base + $HOST overlay)"
+merge_json_arrays "$HOME/.config/zed/keymap.json" \
+  "$DOTFILES_DIR/shared/zed/keymap.base.json" \
+  "$HOST_DIR/zed/keymap.json"
+
+# --- host layer ------------------------------------------------------------
+
+host_install
+
+# --- projects --------------------------------------------------------------
+
+if [ "$HOST_INSTALL_PROJECTS" = "1" ]; then
+  head_ "Per-project .zed configs"
+  if [ ! -d "$HOST_PROJECTS_DIR" ]; then
+    warn "$HOST_PROJECTS_DIR does not exist — skipping project configs"
+  else
+    for project_dir in "$DOTFILES_DIR"/projects/*/; do
+      project="$(basename "$project_dir")"
+      target_base="$HOST_PROJECTS_DIR/$project"
+      if [ ! -d "$target_base" ]; then
+        log "skipping $project (project dir not found)"
+        continue
+      fi
+      link_tree "${project_dir%/}" "$target_base"
+    done
   fi
-  find "$project_dir" -type f | while read -r f; do
-    rel="${f#"$project_dir"}"
-    link_file "$f" "$target_base/$rel"
-  done
-done
+fi
 
+# --- sanity checks ---------------------------------------------------------
+
+head_ "Checks"
+[ -d "$HOME/.oh-my-zsh" ] || warn "oh-my-zsh is not installed — the shared .zshrc expects it"
+[ -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ] \
+  || warn "powerlevel10k is not installed in oh-my-zsh custom themes"
+
+echo
 echo "Done!"
