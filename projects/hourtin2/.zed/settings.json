@@ -7,15 +7,14 @@
         "Python": {
             "language_servers": ["pyright", "ruff"],
             "format_on_save": "on",
-            "formatter": {
-                "language_server": {
-                    "name": "ruff",
-                },
-            },
-            "code_actions_on_format": {
-                "source.organizeImports.ruff": false,
-                "source.fixAll.ruff": true,
-            },
+            // Applied consecutively: sort imports, apply the remaining lint
+            // autofixes, then format. Sorting is driven by the `I` rules and the
+            // `src` roots declared in pyproject.toml.
+            "formatter": [
+                { "code_action": "source.organizeImports.ruff" },
+                { "code_action": "source.fixAll.ruff" },
+                { "language_server": { "name": "ruff" } },
+            ],
         },
     },
 
@@ -23,12 +22,31 @@
         "pyright": {
             "settings": {
                 "python.analysis": {
-                    "typeCheckingMode": "off"
+                    "typeCheckingMode": "off",
                 },
                 "python": {
-                    "pythonPath": ".venv/bin/python"
-                }
-            }
-        }
-    }
+                    "pythonPath": ".venv/bin/python",
+                },
+            },
+        },
+        "ruff": {
+            // Use the ruff pinned in pyproject.toml instead of the copy Zed downloads
+            // (currently 0.16), whose default rule set is far wider than 0.15.5's —
+            // without this, format-on-save and `source.fixAll` rewrite code that
+            // pre-commit and CI would leave alone.
+            "binary": {
+                "path": ".venv/bin/ruff",
+                "arguments": ["server"],
+                "ignore_system_version": true,
+            },
+            "initialization_options": {
+                "settings": {
+                    "configuration": "./pyproject.toml",
+                    "logLevel": "info",
+                },
+            },
+        },
+    },
+
+    "tab_size": 4,
 }
