@@ -40,6 +40,31 @@
         "dock": "left"
     },
     "agent": {
+        "terminal_init_command": "claude",
+        "profiles": {
+            "ask": {
+                "name": "Ask",
+                "tools": {
+                    "create_thread": true,
+                    "diagnostics": true,
+                    "ask_user": false,
+                    "fetch": true,
+                    "list_agents_and_models": true,
+                    "list_directory": true,
+                    "find_path": true,
+                    "find_references": true,
+                    "get_code_actions": true,
+                    "go_to_definition": true,
+                    "read_file": true,
+                    "grep": true,
+                    "skill": true,
+                    "spawn_agent": true,
+                    "search_web": true
+                },
+                "enable_all_context_servers": false,
+                "context_servers": {}
+            }
+        },
         "dock": "right",
         "use_modifier_to_send": true,
         "default_model": {
