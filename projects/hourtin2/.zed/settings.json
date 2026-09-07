@@ -5,7 +5,10 @@
 {
     "languages": {
         "Python": {
-            "language_servers": ["pyright", "ruff"],
+            // `ty` for type checking, `ruff` for lint/format. Both are picked up
+            // from .venv/bin (see the `ty`/`ruff` pins in pyproject.toml), so the
+            // editor, pre-commit and CI all run the same versions.
+            "language_servers": ["ty", "ruff"],
             "format_on_save": "on",
             // Applied consecutively: sort imports, apply the remaining lint
             // autofixes, then format. Sorting is driven by the `I` rules and the
@@ -19,16 +22,8 @@
     },
 
     "lsp": {
-        "pyright": {
-            "settings": {
-                "python.analysis": {
-                    "typeCheckingMode": "off",
-                },
-                "python": {
-                    "pythonPath": ".venv/bin/python",
-                },
-            },
-        },
+        // ty reads [tool.ty] from pyproject.toml: interpreter, first-party roots
+        // and excludes are configured there, not here.
         "ruff": {
             // Use the ruff pinned in pyproject.toml instead of the copy Zed downloads
             // (currently 0.16), whose default rule set is far wider than 0.15.5's —

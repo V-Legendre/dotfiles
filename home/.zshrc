@@ -77,7 +77,18 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+# nvm is loaded on demand (first `node`/`npm`/`nvm` call pays ~300ms, every
+# shell start saves it). NVM_COMPLETION=false: the completion is not worth
+# ~100ms at every startup.
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=false
 plugins=( git z zsh-nvm zsh-syntax-highlighting )
+
+# Cached completions (kubectl, flux-operator). Regenerate after a CLI upgrade:
+#   kubectl completion zsh > ~/.zfunc/_kubectl
+#   flux-operator completion zsh > ~/.zfunc/_flux-operator
+# Must come before oh-my-zsh.sh, which runs the one and only compinit.
+fpath=(~/.zfunc $fpath)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -118,21 +129,15 @@ alias raude="rtk claude"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source <(kubectl completion zsh)
 compdef k=kubectl
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(~/.local/bin/mise activate zsh)"
 
 # Krew (kubectl plugin manager)
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/vlegendre/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
+# (Docker Desktop's completion block removed: it pointed at a stale
+# /Users/vlegendre/.docker/completions and re-ran compinit a 3rd time.)
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
@@ -140,9 +145,8 @@ alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm itself is provided by the zsh-nvm plugin above (lazily). Sourcing
+# nvm.sh here would load it eagerly again and cost ~650ms per shell.
 
 # source ~/.config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 
