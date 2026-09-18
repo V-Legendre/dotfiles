@@ -40,7 +40,7 @@
         "dock": "left"
     },
     "agent": {
-        "terminal_init_command": "codex",
+        "terminal_init_command": "pi",
         "commit_message_model": {
           "provider": "openai",
           "model": "gpt-5.4-mini"
