@@ -40,7 +40,11 @@
         "dock": "left"
     },
     "agent": {
-        "terminal_init_command": "claude",
+        "terminal_init_command": "codex",
+        "commit_message_model": {
+          "provider": "openai",
+          "model": "gpt-5.4-mini"
+        },
         "profiles": {
             "ask": {
                 "name": "Ask",
@@ -112,7 +116,7 @@
         "line_height": "standard",
         "cursor_shape": "block",
         "blinking": "off",
-        "option_as_meta": true,
+        "option_as_meta": false,
         "minimum_contrast": 0,
     },
 }
