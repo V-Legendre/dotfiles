@@ -56,6 +56,9 @@
     {
         "context": "Terminal",
         "bindings": {
+            "shift-enter": ["terminal::SendText", "\u001b[13;2u"],
+            "ctrl--": ["terminal::SendText", "\u001b[45;5u"],
+            "ctrl-alt-]": ["terminal::SendText", "\u001b[93;7u"],
             "cmd-shift-z": "workspace::ToggleZoom",
             "alt-n": ["terminal::SendText", "~"],
             "alt-shift-9": ["terminal::SendText", "["],

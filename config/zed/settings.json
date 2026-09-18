@@ -41,6 +41,8 @@
     },
     "agent": {
         "terminal_init_command": "pi",
+        "notify_when_agent_waiting": true,
+        "play_sound_when_agent_done": true,
         "commit_message_model": {
           "provider": "openai",
           "model": "gpt-5.4-mini"
