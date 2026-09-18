@@ -110,7 +110,7 @@
     "showIcon": true,
     "hideWhenNoNotification": false,
     "notificationUrl": "https://groupe-ouihelp.ghe.com/notifications",
-    "ghBinaryPath": "/opt/homebrew/bin/gh"
+    "ghBinaryPath": "env GH_HOST=groupe-ouihelp.ghe.com /opt/homebrew/bin/gh"
   },
   "weatherWidgetOptions": {
     "refreshFrequency": 1800000,
