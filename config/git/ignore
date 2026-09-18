@@ -1,0 +1,19 @@
+# Mise config files
+.mise.local.toml
+.mise.\*.local.toml
+kubeconfig.yaml
+kubeconfig_dataplatform.yaml
+Pulumi.vincent.yaml
+# Python venv
+.venv/
+.pulumi/
+.terraform/
+
+# IDEs
+.zed/
+prof/
+local_secret.yaml
+**/.claude/settings.local.json
+pyrightconfig.json
+openrc.sh
+poc_clickhouse/data

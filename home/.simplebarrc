@@ -109,7 +109,7 @@
     "showOnDisplay": "",
     "showIcon": true,
     "hideWhenNoNotification": false,
-    "notificationUrl": "https://github.com/notifications",
+    "notificationUrl": "https://groupe-ouihelp.ghe.com/notifications",
     "ghBinaryPath": "/opt/homebrew/bin/gh"
   },
   "weatherWidgetOptions": {

@@ -1,0 +1,21 @@
+[core]
+	excludesfile = ~/.config/git/ignore
+[user]
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILqYMRpgZObRkmb0ib8kNgZ7xdMcKPS6wX5Bolqq7YuX
+	name = V-Legendre
+	email = vincent.legendre@ouihelp.fr
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[commit]
+  gpgsign = true
+
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
+[push]
+  autoSetupRemote = true
