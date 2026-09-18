@@ -9,6 +9,7 @@ Config files managed via symlinks. Files live in this repo; `install.sh` creates
 | `home/.*` | `~/` |
 | `config/` | `~/.config/` |
 | `aws/config` | `~/.aws/config` |
+| `pi/agent/extensions/` | `~/.pi/agent/extensions/` |
 | `projects/<name>/.zed/` | `~/Documents/Projects/<name>/.zed/` |
 
 ## Setup

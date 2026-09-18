@@ -61,6 +61,12 @@ if [ -f "$DOTFILES_DIR/aws/config" ]; then
   link_file "$DOTFILES_DIR/aws/config" "$HOME/.aws/config"
 fi
 
+echo "==> Pi extensions"
+for f in "$DOTFILES_DIR"/pi/agent/extensions/*; do
+  [ -f "$f" ] || continue
+  link_file "$f" "$HOME/.pi/agent/extensions/$(basename "$f")"
+done
+
 echo "==> Per-project .zed configs"
 for project_dir in "$DOTFILES_DIR"/projects/*/; do
   project="$(basename "$project_dir")"
